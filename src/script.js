@@ -33,6 +33,10 @@ btn.addEventListener("click", () => {
       ).innerHTML = `<strong>Location:</strong> 📍${dataReturn.results[0].location.country} / ${dataReturn.results[0].location.city}`;
       document.querySelector(".image").src =
         dataReturn.results[0].picture.large;
+
+      if (dataReturn.results[0].location.city == "İzmir") {
+        console.log("izmirr");
+      }
     })
     .then(() => {
       const date = new Date().getTime();
