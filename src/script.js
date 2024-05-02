@@ -1,8 +1,12 @@
 const btn = document.querySelector("button");
 
 btn.addEventListener("click", () => {
-  fetch("https://randomuser.me/api/")
+  fetch("https://randomuser.me/api/1")
     .then((data) => {
+      if (!data.ok) {
+        throw new Error("Not Found Error");
+      }
+
       const opacitySettings = document.querySelectorAll(".opacity-settings");
       const nullTitle = document.querySelector(".null");
 
@@ -42,7 +46,7 @@ btn.addEventListener("click", () => {
       const date = new Date().getTime();
       console.log(`${date}usercreated`);
     })
-    .catch(() => {
+    .catch((error) => {
       const opacitySettings = document.querySelectorAll(".opacity-settings");
       const nullTitle = document.querySelector(".null");
 
@@ -52,6 +56,6 @@ btn.addEventListener("click", () => {
 
       nullTitle.innerHTML = "404: Error <br> Try Again!";
 
-      console.error("404: Error");
+      console.log(error);
     });
 });
