@@ -1,7 +1,7 @@
 const btn = document.querySelector("button");
 
 btn.addEventListener("click", () => {
-  fetch("https://randomuser.me/api/1")
+  fetch("https://randomuser.me/api/")
     .then((data) => {
       if (!data.ok) {
         throw new Error("Not Found Error");
